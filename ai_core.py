@@ -1,12 +1,12 @@
 # Salve este arquivo como: ai_core.py
 import json
 import os
+from motor import ModuloMarcenaria
+import streamlit as st
 from google import genai
 from google.genai import types
-from motor import ModuloMarcenaria
-
-# Coloque sua chave de API do Google AI Studio aqui
-os.environ["GEMINI_API_KEY"] = "chave_da_api"
+chave_secreta = st.secrets["GEMINI_API_KEY"]
+client = genai.Client(api_key=chave_secreta)
 
 def consultar_ia_gemini(mensagem_usuario):
     """
